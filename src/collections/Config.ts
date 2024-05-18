@@ -2,11 +2,16 @@ import { CollectionConfig } from "payload/types";
 
 const Config: CollectionConfig = {
   slug: "config",
+
   access: {
     read: () => true,
-    create: () => false,
+    create: () => true,
     update: () => true,
-    delete: () => false,
+    delete: () => true,
+  },
+  admin: {
+    useAsTitle: "type",
+    defaultColumns: ["type"],
   },
   fields: [
     {
@@ -23,15 +28,6 @@ const Config: CollectionConfig = {
       },
     },
     {
-      name: "title",
-      label: "Title",
-      type: "text",
-      required: true,
-      access: {
-        update: () => false,
-      },
-    },
-    {
       name: "bio",
       label: "Bio",
       type: "textarea",
@@ -42,39 +38,12 @@ const Config: CollectionConfig = {
     },
     {
       type: "upload",
-      name: "cv",
-      label: "CV",
+      name: "profilePicture",
+      label: "Profile Picture",
       relationTo: "media",
       required: true,
       admin: {
         condition: (data) => data.type === "about",
-      },
-    },
-    {
-      type: "text",
-      name: "pass",
-      label: "Password",
-      required: true,
-      admin: {
-        condition: (data) => data.type === "about",
-      },
-    },
-    {
-      name: "displayName",
-      label: "Display Name",
-      type: "text",
-      required: true,
-      admin: {
-        condition: (data) => data.type === "contact",
-      },
-    },
-    {
-      name: "status",
-      label: "Status",
-      type: "text",
-      required: true,
-      admin: {
-        condition: (data) => data.type === "contact",
       },
     },
     {
@@ -86,33 +55,23 @@ const Config: CollectionConfig = {
         condition: (data) => data.type === "contact",
       },
     },
-    {
-      name: "city",
-      label: "City",
-      type: "text",
-      required: true,
-      admin: {
-        condition: (data) => data.type === "contact",
-      },
-    },
-    {
-      name: "phone",
-      label: "Phone Number",
-      type: "text",
-      required: true,
-      admin: {
-        condition: (data) => data.type === "contact",
-      },
-    },
+    /* Social media (Twitter, Instagram Linkedin Behance y youtube opcionales cada una) */
     {
       name: "socialMedia",
       label: "Social Media",
       type: "array",
       fields: [
         {
-          name: "name",
-          label: "Name",
-          type: "text",
+          name: "platform",
+          label: "Platform",
+          type: "select",
+          options: [
+            { label: "Twitter", value: "twitter" },
+            { label: "Instagram", value: "instagram" },
+            { label: "LinkedIn", value: "linkedin" },
+            { label: "Behance", value: "behance" },
+            { label: "YouTube", value: "youtube" },
+          ],
           required: true,
         },
         {
@@ -124,6 +83,16 @@ const Config: CollectionConfig = {
       ],
       admin: {
         condition: (data) => data.type === "contact",
+      },
+      validate: (value) => {
+        if (value) {
+          const platforms = value.map((item) => item.platform);
+          const uniquePlatforms = new Set(platforms);
+          if (platforms.length !== uniquePlatforms.size) {
+            return "You cannot add the same platform more than once.";
+          }
+        }
+        return true;
       },
     },
   ],
