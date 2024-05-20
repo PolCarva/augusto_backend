@@ -21,7 +21,12 @@ const start = async () => {
 
   // Add your own express routes here
 
-  app.listen(3000)
+  const port = parseInt(process.env.PORT || '3000', 10);
+
+  // Listen on `port` and 0.0.0.0
+  app.listen(port, '0.0.0.0', () => {
+    console.log(`Server is running on port ${port}`)
+  });
 }
 
 start()
