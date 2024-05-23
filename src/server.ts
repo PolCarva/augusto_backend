@@ -1,16 +1,9 @@
 import express from 'express'
 import payload from 'payload'
-import cors from 'cors'
 
 require('dotenv').config()
 const app = express()
 
-app.use(cors(
-  {
-    origin: '*',
-    optionsSuccessStatus: 200,
-  }
-))
 
 // Redirect root to Admin panel
 app.get('/', (_, res) => {
@@ -29,6 +22,7 @@ const start = async () => {
 
   // Add your own express routes here
 
+  
   const port = parseInt(process.env.PORT || '3000', 10);
 
   // Listen on `port` and 0.0.0.0
