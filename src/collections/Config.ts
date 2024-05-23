@@ -60,6 +60,7 @@ const Config: CollectionConfig = {
       name: "socialMedia",
       label: "Social Media",
       type: "array",
+      maxRows: 5,
       fields: [
         {
           name: "platform",
