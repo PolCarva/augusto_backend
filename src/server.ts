@@ -1,8 +1,16 @@
 import express from 'express'
 import payload from 'payload'
+import cors from 'cors'
 
 require('dotenv').config()
 const app = express()
+
+app.use(cors(
+  {
+    origin: '*',
+    optionsSuccessStatus: 200,
+  }
+))
 
 // Redirect root to Admin panel
 app.get('/', (_, res) => {
