@@ -3,8 +3,8 @@ import { CollectionConfig } from 'payload/types';
 const Media: CollectionConfig = {
   slug: 'media',
   upload: {
-    staticURL: '/media', // URL estática donde se accederán los medios
-    staticDir: 'media', // Directorio donde se guardarán los archivos
+    staticURL: '/media', 
+    staticDir: 'media', 
     mimeTypes: ['image/*', 'application/octet-stream'], 
   },
   access: {
@@ -13,7 +13,7 @@ const Media: CollectionConfig = {
   fields: [
     {
       name: 'alt',
-      type: 'text', // Campo para texto alternativo de la imagen
+      type: 'text', 
     },
   ],
 }
