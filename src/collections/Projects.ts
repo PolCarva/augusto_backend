@@ -22,6 +22,7 @@ const Projects: CollectionConfig = {
   
     {
       name: "images",
+      required: true,
       label: "Project Images",
       type: "array",
       fields: [
