@@ -44,6 +44,14 @@ const Projects: CollectionConfig = {
       relationTo: "media",
     },
     {
+      name: "driveLink",
+      label: "Drive Link to the model",
+      type: "text",
+      admin: {
+        position: "sidebar",
+      },
+    },
+    {
       name: "description",
       label: "Description",
       type: "textarea",
