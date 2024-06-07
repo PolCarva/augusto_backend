@@ -17,6 +17,12 @@ const Projects: CollectionConfig = {
       type: "text",
       required: true,
     },
+    {
+      name: "title_jp",
+      label: "Title (Japanese)",
+      type: "text",
+      required: true,
+    },
     slugField(),
 
   
@@ -55,6 +61,11 @@ const Projects: CollectionConfig = {
     {
       name: "description",
       label: "Description",
+      type: "textarea",
+    },
+    {
+      name: "description_jp",
+      label: "Description (Japanese)",
       type: "textarea",
     },
   ],
