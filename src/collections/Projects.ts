@@ -44,7 +44,7 @@ const Projects: CollectionConfig = {
     },
     {
       name: "video",
-      label: "Video",
+      label: "Video URL",
       type: "text",
     },
     {
