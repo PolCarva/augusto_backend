@@ -43,6 +43,16 @@ const Projects: CollectionConfig = {
       ],
     },
     {
+      name: "video",
+      label: "Video",
+      type: "text",
+    },
+    {
+      name: "video_index",
+      label: "Video Index",
+      type: "number",
+    },
+    {
       name: "model",
       label: "3D Model (.glb)",
       type: "upload",
