@@ -31,6 +31,7 @@ const Projects: CollectionConfig = {
       required: true,
       label: "Project Images",
       type: "array",
+      maxRows: 1000,
       fields: [
         {
           type: "upload",
