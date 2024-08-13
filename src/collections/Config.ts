@@ -37,6 +37,15 @@ const Config: CollectionConfig = {
       },
     },
     {
+      name: "bio_jp",
+      label: "Bio (Japanese)",
+      type: "textarea",
+      required: true,
+      admin: {
+        condition: (data) => data.type === "about",
+      },
+    },
+    {
       type: "upload",
       name: "profilePicture",
       label: "Profile Picture",
