@@ -60,6 +60,7 @@ const Config: CollectionConfig = {
       label: "Email",
       type: "text",
       required: true,
+      hasMany: true,
       admin: {
         condition: (data) => data.type === "contact",
       },
